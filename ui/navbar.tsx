@@ -1,17 +1,14 @@
-import Link from 'next/link'
-
-const navItems = [
-  { id: 1, name: 'about.txt', href: '/about'},
-  { id: 2, name: 'essays.md', href: '/essays'},
-  { id: 3, name: "contact.exe", href: '/contact'}
-];
+import NavLink from '@/ui/nav-link'
+import { navItems } from '@/lib/nav-items'
 
 export default function Navbar() {
   return (
-    <nav className="font-mono">
-      <ul>
+    <nav className="font-mono hidden md:block">
+      <ul className="flex gap-6 justify-end">
         {navItems.map((item) => (
-          <li key={item.id}><Link href={item.href}>{item.name}</Link></li>
+          <li key={item.id}>
+             <NavLink href={item.href}>{item.name}</NavLink>
+          </li>
         ))}
       </ul>
     </nav>

@@ -1,7 +1,6 @@
-import type { Metadata } from "next";
 import localFont from 'next/font/local';
 import "./globals.css";
-import Navbar from '@/ui/navbar'
+import Header from '@/ui/header'
 
 const jetBrains = localFont({
   src: "../fonts/JetBrainsMono.woff2",
@@ -20,8 +19,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${jetBrains.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
+        <div className="max-w-5xl mx-auto w-full px-4 md:px-8">
+          <Header />
+          {children}
+        </div>
       </body>
     </html>
   );
